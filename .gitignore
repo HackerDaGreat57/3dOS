@@ -1,6 +1,5 @@
-mingw64
-/Backend/objects.list
-/Backend/output.map
-/Backend/BOOTX64.EFI
-gnu-efi-3.0.6
-bin
+bin/mingw64
+bin/mingw64_old
+bin/BOOTX64.EFI
+bin/objects.list
+bin/output.map
