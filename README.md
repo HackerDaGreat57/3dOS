@@ -1,3 +1,7 @@
+Sorry, I've been project hopping for a few months. First it was an app that could do anything, then it was an operating system. I've just decided to take a break from all this for a while. I will get back to it, I dunno, maybe during summer vacation of 2025.
+
+Original document below.
+
 # 3dOS
 This project aims to (eventually) compete with Microsoft Windows. Therefore, I do not trust GitHub, a Microsoft-hosted service, with my code. ~~The repository is located [here](https://7fad-2601-647-5580-7a50-6fa7-d0be-c676-cc32.ngrok.io/HackerDaGreat57/3dOS).~~
 
