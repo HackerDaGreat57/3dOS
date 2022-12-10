@@ -1,5 +1,5 @@
 # 3dOS
-This project aims to (eventually) compete with Microsoft Windows. Therefore, I do not trust GitHub, a Microsoft-hosted service, with my code. The repository is located [here](https://hdg57.eu.org/HackerDaGreat57/3dOS).
+This project aims to (eventually) compete with Microsoft Windows. Therefore, I do not trust GitHub, a Microsoft-hosted service, with my code. The repository is located [here](https://gitea.hdg57.eu.org/HackerDaGreat57/3dOS).
 
 ## Server Updates (newest to oldest)
 **Update 12/10/2022 1:06 PM (PST):** Gitea is now running on a different but still old server. I got a free domain on https://nic.eu.org/ and connected it to Cloudflare, and now I'm hosting my server without port forwarding via a Cloudflare Tunnel. *Security above all else!*
