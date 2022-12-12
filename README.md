@@ -1,8 +1,8 @@
 # 3dOS
-This project aims to (eventually) compete with Microsoft Windows. Therefore, I do not trust GitHub, a Microsoft-hosted service, with my code. ~~The repository is located [here](https://gitea.hdg57.eu.org/HackerDaGreat57/3dOS).~~
+This project aims to (eventually) compete with Microsoft Windows. Therefore, I do not trust GitHub, a Microsoft-hosted service, with my code. The repository is located [here](https://gitea.hdg57.eu.org/HackerDaGreat57/3dOS).
 
 ## Server Updates (newest to oldest)
-**Update 12/11/2022 8:58 PM (PST):** I have learned my lesson of always sticking to LTSes. The server will be offline until Ubuntu gets postgresql support for kinetic on arm64. Next time an LTS rolls around I'll be staying at that for a while.
+**Update 12/11/2022 8:58 PM (PST):** I have learned my lesson of always sticking to LTSes. The server will be hosted on older hardware until Ubuntu gets postgresql support for kinetic on arm64, which my Raspberry Pi uses. Next time an LTS rolls around I'll be staying at that for a while.
 
 **Update 12/10/2022 1:06 PM (PST):** Gitea is now running on a different but still old server. I got a free domain on https://nic.eu.org/ and connected it to Cloudflare, and now I'm hosting my server without port forwarding via a Cloudflare Tunnel. *Security above all else!*
 
