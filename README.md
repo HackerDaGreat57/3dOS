@@ -2,6 +2,12 @@
 This project aims to (eventually) compete with Microsoft Windows. Therefore, I do not trust GitHub, a Microsoft-hosted service, with my code. The repository is located [here](https://gitea.hdg57.eu.org/HackerDaGreat57/3dOS).
 
 ## Server Updates (newest to oldest)
+**Update 12/12/2022 7:52 PM (PST):** ***Migration of the Gitea server to Raspberry Pi is finished***. Gitea is now being hosted on a shiny new dedicated ARM64 server with double the memory than the old computer did! (The old computer will be used for hosting webpages on my website, surely that can't put too much load on it.)
+
+Sorry for the downtime, but I can assure you this won't happen again for quite a while since I also installed Ubuntu Server 22.04.1 LTS. Let's aim for a month of uptime, at *least* (assuming PG&E is feeling generous).
+
+-----
+
 **Update 12/11/2022 8:58 PM (PST):** I have learned my lesson of always sticking to LTSes on servers. (The arm64 version of postgresql is not available for Kinetic yet.) Gitea will be hosted on older hardware until I finish setting up an older LTS release of Ubuntu (22.04) on my microSD card. Lesson learned, but not the hard way since no data was lost.
 
 Since we'll be using LTSes, server downtime is expected to be minimal from now on. (Excluding power outages. First cluster of donations I get go towards a decent backup battery. You know what, I oughta make a donation map after the first release.)
