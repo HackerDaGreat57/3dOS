@@ -2,7 +2,7 @@
 This project aims to (eventually) compete with Microsoft Windows. Therefore, I do not trust GitHub, a Microsoft-hosted service, with my code. The repository is located [here](https://gitea.hdg57.eu.org/HackerDaGreat57/3dOS).
 
 ## Server Updates (newest to oldest)
-**Update 12/15/2022 10:30 PM (PST):** Server down for about 20 minutes to take backup. Will be back shortly. (New update entry will not be added when it's back up.)
+**Update 12/15/2022 10:30 PM (PST):** Server down for about 20 minutes to take backup. Will be back shortly. (New update entry will not be added when it's backed up.)
 
 -----
 
