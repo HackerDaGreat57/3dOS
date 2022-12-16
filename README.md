@@ -2,6 +2,10 @@
 This project aims to (eventually) compete with Microsoft Windows. Therefore, I do not trust GitHub, a Microsoft-hosted service, with my code. The repository is located [here](https://gitea.hdg57.eu.org/HackerDaGreat57/3dOS).
 
 ## Server Updates (newest to oldest)
+**Update 12/15/2022 10:30 PM (PST):** Server down for about 20 minutes to take backup. Will be back shortly. (New update entry will not be added when it's back up.)
+
+-----
+
 **Update 12/12/2022 7:52 PM (PST):** ***Migration of the Gitea server to Raspberry Pi is finished***. Gitea is now being hosted on a shiny new dedicated ARM64 server with double the memory than the old computer did! (The old computer will be used for hosting webpages on my website, surely that can't put too much load on it.)
 
 Sorry for the downtime, but I can assure you this won't happen again for quite a while since I also installed Ubuntu Server 22.04.1 LTS. Let's aim for a month of uptime, at *least* (assuming PG&E is feeling generous).
