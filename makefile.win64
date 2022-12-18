@@ -1,0 +1,371 @@
+#Hex-Zip Makefile for Windows
+
+CPP = g++.exe -D__DEBUG__
+CC = gcc.exe -D__DEBUG__
+WINDRES = windres.exe
+LDLIBS = -lgdi32 -luser32 -lkernel32 -lncursesw
+LIBSDIR = -L"%HZ_COMPILER%/mingw64/lib"
+CINCS = -I"%HZ_COMPILER%/mingw64/include" -I"%HZ_COMPILER%\mingw64\include\c++\12.1.0" -I"%HZ_ROOT%/src/include"
+CXXINCS = -I"%HZ_COMPILER%/mingw64/include" -I"%HZ_COMPILER%\mingw64\include\c++\12.1.0" -I"%HZ_ROOT%/src/include"
+FLAGS = -w -Wall -Wextra -pedantic -fpermissive -pg -g3 -Ofast -flto -save-temps -m64
+RM = rm.exe -f
+
+X86_64 = -march=x86-64
+X86_64_BIN = bin/x86_64/bpp.exe
+X86_64_RES = obj/x86_64/bpp.res
+X86_64_OBJ = obj/x86_64/bpp.o obj/x86_64/glad.o $(X86_64_RES)
+
+X86_64_V2 = -march=x86-64-v2
+X86_64_V2_BIN = bin/x86_64_v2/bpp.exe
+X86_64_V2_RES = obj/x86_64_v2/bpp.res
+X86_64_V2_OBJ = obj/x86_64_v2/bpp.o obj/x86_64_v2/glad.o $(X86_64_V2_RES)
+
+X86_64_V3 = -march=x86-64-v3
+X86_64_V3_BIN = bin/x86_64_v3/bpp.exe
+X86_64_V3_RES = obj/x86_64_v3/bpp.res
+X86_64_V3_OBJ = obj/x86_64_v3/bpp.o obj/x86_64_v3/glad.o $(X86_64_V3_RES)
+
+X86_64_V4 = -march=x86-64-v4
+X86_64_V4_BIN = bin/x86_64_v4/bpp.exe
+X86_64_V4_RES = obj/x86_64_v4/bpp.res
+X86_64_V4_OBJ = obj/x86_64_v4/bpp.o obj/x86_64_v4/glad.o $(X86_64_V4_RES)
+
+PENTIUM = -march=pentium
+PENTIUM_BIN = bin/pentium/bpp.exe
+PENTIUM_RES = obj/pentium/bpp.res
+PENTIUM_OBJ = obj/pentium/bpp.o obj/pentium/glad.o $(PENTIUM_RES)
+
+LAKEMONT = -march=lakemont
+LAKEMONT_BIN = bin/lakemont/bpp.exe
+LAKEMONT_RES = obj/lakemont/bpp.res
+LAKEMONT_OBJ = obj/lakemont/bpp.o obj/lakemont/glad.o $(LAKEMONT_RES)
+
+PENTIUM_MMX = -march=pentium-mmx
+PENTIUM_MMX_BIN = bin/pentium_mmx/bpp.exe
+PENTIUM_MMX_RES = obj/pentium_mmx/bpp.res
+PENTIUM_MMX_OBJ = obj/pentium_mmx/bpp.o obj/pentium_mmx/glad.o $(PENTIUM_MMX_RES)
+
+PENTIUMPRO = -march=pentiumpro
+PENTIUMPRO_BIN = bin/pentiumpro/bpp.exe
+PENTIUMPRO_RES = obj/pentiumpro/bpp.res
+PENTIUMPRO_OBJ = obj/pentiumpro/bpp.o obj/pentiumpro/glad.o $(PENTIUMPRO_RES)
+
+PENTIUM2 = -march=pentium2
+PENTIUM2_BIN = bin/pentium2/bpp.exe
+PENTIUM2_RES = obj/pentium2/bpp.res
+PENTIUM2_OBJ = obj/pentium2/bpp.o obj/pentium2/glad.o $(PENTIUM2_RES)
+
+PENTIUM3 = -march=pentium3
+PENTIUM3_BIN = bin/pentium3/bpp.exe
+PENTIUM3_RES = obj/pentium3/bpp.res
+PENTIUM3_OBJ = obj/pentium3/bpp.o obj/pentium3/glad.o $(PENTIUM3_RES)
+
+PENTIUM3M = -march=pentium3m
+PENTIUM3M_BIN = bin/pentium3m/bpp.exe
+PENTIUM3M_RES = obj/pentium3m/bpp.res
+PENTIUM3M_OBJ = obj/pentium3m/bpp.o obj/pentium3m/glad.o $(PENTIUM3M_RES)
+
+PENTIUM_M = -march=pentium-m
+PENTIUM_M_BIN = bin/pentium_m/bpp.exe
+PENTIUM_M_RES = obj/pentium_m/bpp.res
+PENTIUM_M_OBJ = obj/pentium_m/bpp.o obj/pentium_m/glad.o $(PENTIUM_M_RES)
+
+PENTIUM4 = -march=pentium4
+PENTIUM4_BIN = bin/pentium4/bpp.exe
+PENTIUM4_RES = obj/pentium4/bpp.res
+PENTIUM4_OBJ = obj/pentium4/bpp.o obj/pentium4/glad.o $(PENTIUM4_RES)
+
+PENTIUM4M = -march=pentium4m
+PENTIUM4M_BIN = bin/pentium4m/bpp.exe
+PENTIUM4M_RES = obj/pentium4m/bpp.res
+PENTIUM4M_OBJ = obj/pentium4m/bpp.o obj/pentium4m/glad.o $(PENTIUM4M_RES)
+
+PRESCOTT = -march=prescott
+PRESCOTT_BIN = bin/prescott/bpp.exe
+PRESCOTT_RES = obj/prescott/bpp.res
+PRESCOTT_OBJ = obj/prescott/bpp.o obj/prescott/glad.o $(PRESCOTT_RES)
+
+NOCONA = -march=nocona
+NOCONA_BIN = bin/nocona/bpp.exe
+NOCONA_RES = obj/nocona/bpp.res
+NOCONA_OBJ = obj/nocona/bpp.o obj/nocona/glad.o $(NOCONA_RES)
+
+CORE2 = -march=core2
+CORE2_BIN = bin/core2/bpp.exe
+CORE2_RES = obj/core2/bpp.res
+CORE2_OBJ = obj/core2/bpp.o obj/core2/glad.o $(CORE2_RES)
+
+NEHALEM = -march=nehalem
+NEHALEM_BIN = bin/nehalem/bpp.exe
+NEHALEM_RES = obj/nehalem/bpp.res
+NEHALEM_OBJ = obj/nehalem/bpp.o obj/nehalem/glad.o $(NEHALEM_RES)
+
+WESTMERE = -march=westmere
+WESTMERE_BIN = bin/westmere/bpp.exe
+WESTMERE_RES = obj/westmere/bpp.res
+WESTMERE_OBJ = obj/westmere/bpp.o obj/westmere/glad.o $(WESTMERE_RES)
+
+SANDYBRIDGE = -march=sandybridge
+SANDYBRIDGE_BIN = bin/sandybridge/bpp.exe
+SANDYBRIDGE_RES = obj/sandybridge/bpp.res
+SANDYBRIDGE_OBJ = obj/sandybridge/bpp.o obj/sandybridge/glad.o $(SANDYBRDIGE_RES)
+
+IVYBRIDGE = -march=ivybridge
+IVYBRIDGE_BIN = bin/ivybridge/bpp.exe
+IVYBRIDGE_RES = obj/ivybridge/bpp.res
+IVYBRIDGE_OBJ = obj/ivybridge/bpp.o obj/ivybridge/glad.o $(IVYBRDIGE_RES)
+
+HASWELL = -march=haswell
+HASWELL_BIN = bin/haswell/bpp.exe
+HASWELL_RES = obj/haswell/bpp.res
+HASWELL_OBJ = obj/haswell/bpp.o obj/haswell/glad.o $(HASWELL_RES)
+
+BROADWELL = -march=broadwell
+BROADWELL_BIN = bin/broadwell/bpp.exe
+BROADWELL_RES = obj/broadwell/bpp.res
+BROADWELL_OBJ = obj/broadwell/bpp.o obj/broadwell/glad.o $(BROADWELL_RES)
+
+SKYLAKE = -march=skylake
+SKYLAKE_BIN = bin/skylake/bpp.exe
+SKYLAKE_RES = obj/skylake/bpp.res
+SKYLAKE_OBJ = obj/skylake/bpp.o obj/skylake/glad.o $(SKYLAKE_RES)
+
+BONNELL = -march=bonnell
+BONNELL_BIN = bin/bonnell/bpp.exe
+BONNELL_RES = obj/bonnell/bpp.res
+BONNELL_OBJ = obj/bonnell/bpp.o obj/bonnell/glad.o $(BONNELL_RES)
+
+SILVERMONT = -march=silvermont
+SILVERMONT_BIN = bin/silvermont/bpp.exe
+SILVERMONT_RES = obj/silvermont/bpp.res
+SILVERMONT_OBJ = obj/silvermont/bpp.o obj/silvermont/glad.o $(SILVERMONT_RES)
+
+GOLDMONT = -march=goldmont
+GOLDMONT_BIN = bin/goldmont/bpp.exe
+GOLDMONT_RES = obj/goldmont/bpp.res
+GOLDMONT_OBJ = obj/goldmont/bpp.o obj/goldmont/glad.o $(GOLDMONT_RES)
+
+GOLDMONT_PLUS = -march=goldmont-plus
+GOLDMONT_PLUS_BIN = bin/goldmont_plus/bpp.exe
+GOLDMONT_PLUS_RES = obj/goldmont_plus/bpp.res
+GOLDMONT_PLUS_OBJ = obj/goldmont_plus/bpp.o obj/goldmont_plus/glad.o $(GOLDMONT_PLUS_RES)
+
+TREMONT = -march=tremont
+TREMONT_BIN = bin/tremont/bpp.exe
+TREMONT_RES = obj/tremont/bpp.res
+TREMONT_OBJ = obj/tremont/bpp.o obj/tremont/glad.o $(TREMONT_RES)
+
+KNL = -march=knl
+KNL_BIN = bin/knl/bpp.exe
+KNL_RES = obj/knl/bpp.res
+KNL_OBJ = obj/knl/bpp.o obj/knl/glad.o $(KNL_RES)
+
+KNM = -march=knm
+KNM_BIN = bin/knm/bpp.exe
+KNM_RES = obj/knm/bpp.res
+KNM_OBJ = obj/knm/bpp.o obj/knm/glad.o $(KNM_RES)
+
+SKYLAKE_AVX512 = -march=skylake-avx512
+SKYLAKE_AVX512_BIN = bin/skylake_avx512/bpp.exe
+SKYLAKE_AVX512_RES = obj/skylake_avx512/bpp.res
+SKYLAKE_AVX512_OBJ = obj/skylake_avx512/bpp.o obj/skylake_avx512/glad.o $(SKYLAKE_AVX512_RES)
+
+CANNONLAKE = -march=cannonlake
+CANNONLAKE_BIN = bin/cannonlake/bpp.exe
+CANNONLAKE_RES = obj/cannonlake/bpp.res
+CANNONLAKE_OBJ = obj/cannonlake/bpp.o obj/cannonlake/glad.o $(CANNONLAKE_RES)
+
+ICELAKE_CLIENT = -march=icelake-client
+ICELAKE_CLIENT_BIN = bin/icelake_client/bpp.exe
+ICELAKE_CLIENT_RES = obj/icelake_client/bpp.res
+ICELAKE_CLIENT_OBJ = obj/icelake_client/bpp.o obj/icelake_client/glad.o $(ICELAKE_CLIENT_RES)
+
+ICELAKE_SERVER = -march=icelake-server
+ICELAKE_SERVER_BIN = bin/icelake_server/bpp.exe
+ICELAKE_SERVER_RES = obj/icelake_server/bpp.res
+ICELAKE_SERVER_OBJ = obj/icelake_server/bpp.o obj/icelake_server/glad.o $(ICELAKE_SERVER_RES)
+
+CASCADELAKE = -march=cascadelake
+CASCADELAKE_BIN = bin/cascadelake/bpp.exe
+CASCADELAKE_RES = obj/cascadelake/bpp.res
+CASCADELAKE_OBJ = obj/cascadelake/bpp.o obj/cascadelake/glad.o $(CASCADELAKE_RES)
+
+COOPERLAKE = -march=cooperlake
+COOPERLAKE_BIN = bin/cooperlake/bpp.exe
+COOPERLAKE_RES = obj/cooperlake/bpp.res
+COOPERLAKE_OBJ = obj/cooperlake/bpp.o obj/cooperlake/glad.o $(COOPERLAKE_RES)
+
+TIGERLAKE = -march=tigerlake
+TIGERLAKE_BIN = bin/tigerlake/bpp.exe
+TIGERLAKE_RES = obj/tigerlake/bpp.res
+TIGERLAKE_OBJ = obj/tigerlake/bpp.o obj/tigerlake/glad.o $(TIGERLAKE_RES)
+
+SAPPHIRERAPIDS = -march=sapphirerapids
+SAPPHIRERAPIDS_BIN = bin/sapphirerapids/bpp.exe
+SAPPHIRERAPIDS_RES = obj/sapphirerapids/bpp.res
+SAPPHIRERAPIDS_OBJ = obj/sapphirerapids/bpp.o obj/sapphirerapids/glad.o $(SAPPHIRERAPIDS_RES)
+
+ALDERLAKE = -march=alderlake
+ALDERLAKE_BIN = bin/alderlake/bpp.exe
+ALDERLAKE_RES = obj/alderlake/bpp.res
+ALDERLAKE_OBJ = obj/alderlake/bpp.o obj/alderlake/glad.o $(ALDERLAKE_RES)
+
+ROCKETLAKE = -march=rocketlake
+ROCKETLAKE_BIN = bin/rocketlake/bpp.exe
+ROCKETLAKE_RES = obj/rocketlake/bpp.res
+ROCKETLAKE_OBJ = obj/rocketlake/bpp.o obj/rocketlake/glad.o $(ROCKETLAKE_RES)
+
+K6 = -march=k6
+K6_BIN = bin/k6/bpp.exe
+K6_RES = obj/k6/bpp.res
+K6_OBJ = obj/k6/bpp.o obj/k6/glad.o $(K6_RES)
+
+K6_2 = -march=k6-2
+K6_2_BIN = bin/k6_2/bpp.exe
+K6_2_RES = obj/k6_2/bpp.res
+K6_2_OBJ = obj/k6_2/bpp.o obj/k6_2/glad.o $(K6_2_RES)
+
+K6_3 = -march=k6-3
+K6_3_BIN = bin/k6_3/bpp.exe
+K6_3_RES = obj/k6_3/bpp.res
+K6_3_OBJ = obj/k6_3/bpp.o obj/k6_3/glad.o $(K6_3_RES)
+
+ATHLON = -march=athlon
+ATHLON_BIN = bin/athlon/bpp.exe
+ATHLON_RES = obj/athlon/bpp.res
+ATHLON_OBJ = obj/athlon/bpp.o obj/athlon/glad.o $(ATHLON_RES)
+
+ATHLON_TBIRD = -march=athlon-tbird
+ATHLON_TBIRD_BIN = bin/athlon_tbird/bpp.exe
+ATHLON_TBIRD_RES = obj/athlon_tbird/bpp.res
+ATHLON_TBIRD_OBJ = obj/athlon_tbird/bpp.o obj/athlon_tbird/glad.o $(ATHLON_TBIRD_RES)
+
+ATHLON_4 = -march=athlon-4
+ATHLON4_BIN = bin/athlon4/bpp.exe
+ATHLON4_RES = obj/athlon4/bpp.res
+ATHLON4_OBJ = obj/athlon4/bpp.o obj/athlon4/glad.o $(ATHLON4_RES)
+
+ATHLON_XP = -march=athlon-xp
+ATHLON_XP_BIN = bin/athlon_xp/bpp.exe
+ATHLON_XP_RES = obj/athlon_xp/bpp.res
+ATHLON_XP_OBJ = obj/athlon_xp/bpp.o obj/athlon_xp/glad.o $(ATHLON_XP_RES)
+
+ATHLON_MP = -march=athlon-mp
+ATHLON_MP_BIN = bin/athlon_mp/bpp.exe
+ATHLON_MP_RES = obj/athlon_mp/bpp.res
+ATHLON_MP_OBJ = obj/athlon_mp/bpp.o obj/athlon_mp/glad.o $(ATHLON_MP_RES)
+
+K8 = -march=k8
+K8_BIN = bin/k8/bpp.exe
+K8_RES = obj/k8/bpp.res
+K8_OBJ = obj/k8/bpp.o obj/k8/glad.o $(K8_RES)
+
+OPTERON = -march=opteron
+OPTERON_BIN = bin/opteron/bpp.exe
+OPTERON_RES = obj/opteron/bpp.res
+OPTERON_OBJ = obj/opteron/bpp.o obj/opteron/glad.o $(OPTERON_RES)
+
+ATHLON64 = -march=athlon64
+ATHLON64_BIN = bin/athlon64/bpp.exe
+ATHLON64_RES = obj/athlon64/bpp.res
+ATHLON64_OBJ = obj/athlon64/bpp.o obj/athlon64/glad.o $(ATHLON64_RES)
+
+ATHLON_FX = -march=athlon-fx
+ATHLON_FX_BIN = bin/athlon_fx/bpp.exe
+ATHLON_FX_RES = obj/athlon_fx/bpp.res
+ATHLON_FX_OBJ = obj/athlon_fx/bpp.o obj/athlon_fx/glad.o $(ATHLON_FX_RES)
+
+K8_SSE3 = -march=k8-sse3
+K8_SSE3_BIN = bin/k8_sse3/bpp.exe
+K8_SSE3_RES = obj/k8_sse3/bpp.res
+K8_SSE3_OBJ = obj/k8_sse3/bpp.o obj/k8_sse3/glad.o $(K8_SSE3_RES)
+
+OPTERON_SSE3 = -march=opteron-sse3
+OPTERON_SSE3_BIN = bin/opteron_sse3/bpp.exe
+OPTERON_SSE3_RES = obj/opteron_sse3/bpp.res
+OPTERON_SSE3_OBJ = obj/opteron_sse3/bpp.o obj/opteron_sse3/glad.o $(OPTERON_SSE3_RES)
+
+ATHLON64_SSE3 = -march=athlon64-sse3
+ATHLON64_SSE3_BIN = bin/athlon64_sse3/bpp.exe
+ATHLON64_SSE3_RES = obj/athlon64_sse3/bpp.res
+ATHLON64_SSE3_OBJ = obj/athlon64_sse3/bpp.o obj/athlon64_sse3/glad.o $(ATHLON64_SSE3_RES)
+
+BARCELONA = -march=barcelona
+BARCELONA_BIN = bin/barcelona/bpp.exe
+BARCELONA_RES = obj/barcelona/bpp.res
+BARCELONA_OBJ = obj/barcelona/bpp.o obj/barcelona/glad.o $(BARCELONA_RES)
+
+BDVER1 = -march=bdver1
+BDVER1_BIN = bin/bdver1/bpp.exe
+BDVER1_RES = obj/bdver1/bpp.res
+BDVER1_OBJ = obj/bdver1/bpp.o obj/bdver1/glad.o $(BDVER1_RES)
+
+BDVER2 = -march=bdver2
+BDVER2_BIN = bin/bdver2/bpp.exe
+BDVER2_RES = obj/bdver2/bpp.res
+BDVER2_OBJ = obj/bdver2/bpp.o obj/bdver2/glad.o $(BDVER2_RES)
+
+BDVER3 = -march=bdver3
+BDVER3_BIN = bin/bdver3/bpp.exe
+BDVER3_RES = obj/bdver3/bpp.res
+BDVER3_OBJ = obj/bdver3/bpp.o obj/bdver3/glad.o $(BDVER3_RES)
+
+BDVER4 = -march=bdver4
+BDVER4_BIN = bin/bdver4/bpp.exe
+BDVER4_RES = obj/bdver4/bpp.res
+BDVER4_OBJ = obj/bdver4/bpp.o obj/bdver4/glad.o $(BDVER4_RES)
+
+ZNVER1 = -march=znver1
+ZNVER1_BIN = bin/znver1/bpp.exe
+ZNVER1_RES = obj/znver1/bpp.res
+ZNVER1_OBJ = obj/znver1/bpp.o obj/znver1/glad.o $(ZNVER1_RES)
+
+ZNVER2 = -march=znver2
+ZNVER2_BIN = bin/znver2/bpp.exe
+ZNVER2_RES = obj/znver2/bpp.res
+ZNVER2_OBJ = obj/znver2/bpp.o obj/znver2/glad.o $(ZNVER2_RES)
+
+ZNVER3 = -march=znver3
+ZNVER3_BIN = bin/znver3/bpp.exe
+ZNVER3_RES = obj/znver3/bpp.res
+ZNVER3_OBJ = obj/znver3/bpp.o obj/znver3/glad.o $(ZNVER3_RES)
+
+BTVER1 = -march=btver1
+BTVER1_BIN = bin/btver1/bpp.exe
+BTVER1_RES = obj/btver1/bpp.res
+BTVER1_OBJ = obj/btver1/bpp.o obj/btver1/glad.o $(BTVER1_RES)
+
+BTVER2 = -march=btver2
+BTVER2_BIN = bin/btver2/bpp.exe
+BTVER2_RES = obj/btver2/bpp.res
+BTVER2_OBJ = obj/btver2/bpp.o obj/btver2/glad.o $(BTVER2_RES)
+
+.PHONY: all all-before all-after clean clean-custom x86_64 x86_64_v2 x86_64_v3 x86_64_v4 pentium lakemont pentium_mmx pentiumpro pentium2 pentium3 pentium3m pentium_m pentium4 pentium4m prescott nocona core2 nehalem westmere sandybridge ivybridge haswell broadwell skylake bonnell silvermont goldmont goldmont_plus tremont knl knm skylake_avx512 cannonlake icelake_client icelake_server cascadelake cooperlake tigerlake sapphirerapids alderlake rocketlake k6 k6_2 k6_3 athlon athlon_tbird athlon_4 athlon_xp athlon_mp k8 opteron athlon64 athlon_fx k8_sse3 opteron_sse3 athlon64_sse3 barcelona bdver1 bdver2 bdver3 bdver4 znver1 znver2 znver3 btver1 btver2
+
+all: all-before (X86_64_BIN) (X86_64_V2_BIN) (X86_64_V3_BIN) (X86_64_V4_BIN) (PENTIUM_BIN) (LAKEMONT_BIN) (PENTIUM_MMX_BIN) (PENTIUMPRO_BIN) (PENTIUM2_BIN) (PENTIUM3_BIN) (PENTIUM3M_BIN) (PENTIUM_M_BIN) (PENTIUM4_BIN) (PENTIUM4M_BIN) (PRESCOTT_BIN) (NOCONA_BIN) (CORE2_BIN) (NEHALEM_BIN) (WESTMERE_BIN) (SANDYBRIDGE_BIN) (IVYBRIDGE_BIN) (HASWELL_BIN) (BROADWELL_BIN) (SKYLAKE_BIN) (BONNELL_BIN) (SILVERMONT_BIN) (GOLDMONT_BIN) (GOLDMONT_PLUS_BIN) (TREMONT_BIN) (KNL_BIN) (KNM_BIN) (SKYLAKE_AVX512_BIN) (CANNONLAKE_BIN) (ICELAKE_CLIENT_BIN) (ICELAKE_SERVER_BIN) (CASCADELAKE_BIN) (COOPERLAKE_BIN) (TIGERLAKE_BIN) (SAPPHIRERAPIDS_BIN) (ALDERLAKE_BIN) (ROCKETLAKE_BIN) (K6_BIN) (K6_2_BIN) (K6_3_BIN) (ATHLON_BIN) (ATHLON_TBIRD_BIN) (ATHLON4_BIN) (ATHLON_XP_BIN) (ATHLON_MP_BIN) (K8_BIN) (OPTERON_BIN) (ATHLON4_BIN) (ATHLON_FX_BIN) (K8_SSE3_BIN) (OPTERON_SSE3_BIN) (ATHLON64_SSE3_BIN) (BARCELONA_BIN) (BDVER1_BIN) (BDVER2_BIN) (BDVER3_BIN) (BDVER4_BIN) (ZNVER1_BIN) (ZNVER2_BIN) (ZNVER3_BIN) (BTVER1_BIN) (BTVER2_BIN) all-after
+
+clean: clean-custom
+	${RM} $(X86_64_OBJ) $(X86_64_BIN) $(X86_64_V2_OBJ) $(X86_64_V2_BIN) $(X86_64_V3_OBJ) $(X86_64_V3_BIN) $(X86_64_V4_OBJ) $(X86_64_V4_BIN) $(PENTIUM_OBJ) $(PENTIUM_BIN) $(LAKEMONT_OBJ) $(LAKEMONT_BIN) $(PENTIUM_MMX_OBJ) $(PENTIUM_MMX_BIN) $(PENTIUMPRO_OBJ) $(PENTIUMPRO_BIN) $(PENTIUM2_OBJ) $(PENTIUM2_BIN) $(PENTIUM3_OBJ) $(PENTIUM3_BIN) $(PENTIUM3M_OBJ) $(PENTIUM3M_BIN) $(PENTIUM_M_OBJ) $(PENTIUM_M_BIN) $(PENTIUM4_OBJ) $(PENTIUM4_BIN) $(PENTIUM4M_OBJ) $(PENTIUM4M_BIN) $(PRESCOTT_OBJ) $(PRESCOTT_BIN) $(NOCONA_OBJ) $(NOCONA_BIN) $(CORE2_OBJ) $(CORE2_BIN) $(NEHALEM_OBJ) $(NEHALEM_BIN) $(WESTMERE_OBJ) $(WESTMERE_BIN) $(SANDYBRIDGE_OBJ) $(SANDYBRIDGE_BIN) $(IVYBRIDGE_OBJ) $(IVYBRIDGE_BIN) $(HASWELL_OBJ) $(HASWELL_BIN) $(BROADWELL_OBJ) $(BROADWELL_BIN) $(SKYLAKE_OBJ) $(SKYLAKE_BIN) $(BONNELL_OBJ) $(BONNELL_BIN) $(SILVERMONT_OBJ) $(SILVERMONT_BIN) $(GOLDMONT_OBJ) $(GOLDMONT_BIN) $(GOLDMONT_PLUS_OBJ) $(GOLDMONT_PLUS_BIN) $(TREMONT_OBJ) $(TREMONT_BIN) $(KNL_OBJ) $(KNL_BIN) $(KNM_OBJ) $(KNM_BIN) $(SKYLAKE_AVX512_OBJ) $(SKYLAKE_AVX512_BIN) $(CANNONLAKE_OBJ) $(CANNONLAKE_BIN) $(ICELAKE_CLIENT_OBJ) $(ICELAKE_CLIENT_BIN) $(ICELAKE_SERVER_OBJ) $(ICELAKE_SERVER_BIN) $(CASCADELAKE_OBJ) $(CASCADELAKE_BIN) $(COOPERLAKE_OBJ) $(COOPERLAKE_BIN) $(TIGERLAKE_OBJ) $(TIGERLAKE_BIN) $(SAPPHIRERAPIDS_OBJ) $(SAPPHIRERAPIDS_BIN) $(ALDERLAKE_OBJ) $(ALDERLAKE_BIN) $(ROCKETLAKE_OBJ) $(ROCKETLAKE_BIN) $(K6_OBJ) $(K6_BIN) $(K6_2_OBJ) $(K6_2_BIN) $(K6_3_OBJ) $(K6_3_BIN) $(ATHLON_OBJ) $(ATHLON_BIN) $(ATHLON_TBIRD_OBJ) $(ATHLON_TBIRD_BIN) $(ATHLON4_OBJ) $(ATHLON4_BIN) $(ATHLON_XP_OBJ) $(ATHLON_XP_BIN) $(ATHLON_MP_OBJ) $(ATHLON_MP_BIN) $(K8_OBJ) $(K8_BIN) $(OPTERON_OBJ) $(OPTERON_BIN) $(ATHLON64_OBJ) $(ATHLON4_BIN) $(ATHLON_FX_OBJ) $(ATHLON_FX_BIN) $(K8_SSE3_OBJ) $(K8_SSE3_BIN) $(OPTERON_SSE3_OBJ) $(OPTERON_SSE3_BIN) $(ATHLON64_SSE3_OBJ) $(ATHLON64_SSE3_BIN) $(BARCELONA_OBJ) $(BARCELONA_BIN) $(BDVER1_OBJ) $(BDVER1_BIN) $(BDVER2_OBJ) $(BDVER2_BIN) $(BDVER3_OBJ) $(BDVER3_BIN) $(BDVER4_OBJ) $(BDVER4_BIN) $(ZNVER1_OBJ) $(ZNVER1_BIN) $(ZNVER2_OBJ) $(ZNVER2_BIN) $(ZNVER3_OBJ) $(ZNVER3_BIN) $(BTVER1_OBJ) $(BTVER1_BIN) $(BTVER2_OBJ) $(BTVER2_BIN)
+x86_64:
+	$(CPP) -c src/bpp.cpp -o obj/x86_64/bpp.o $(CXXINCS) $(FLAGS) $(X86_64) $(LDLIBS)
+	$(CC) -c src/glad.c -o obj/x86_64/glad.o $(CINCS) $(FLAGS) $(X86_64) $(LDLIBS)
+	$(WINDRES) -i rsrc/bpp.rc --input-format=rc -o obj/x86_64/bpp.res -O coff
+	$(CPP) $(X86_64_OBJ) -o $(X86_64_BIN) $(LIBSDIR) $(LDLIBS)
+
+x86_64_v2:
+	$(CPP) -c src/bpp.cpp -o obj/x86_64_v2/bpp.o $(CXXINCS) $(FLAGS) $(X86_64_V2) $(LDLIBS)
+	$(CC) -c src/glad.c -o obj/x86_64_v2/glad.o $(CINCS) $(FLAGS) $(X86_64_V2) $(LDLIBS)
+	$(WINDRES) -i rsrc/bpp.rc --input-format=rc -o obj/x86_64_v2/bpp.res -O coff
+	$(CPP) $(X86_64_V2_OBJ) -o $(X86_64_V2_BIN) $(LIBSDIR) $(LDLIBS)
+
+x86_64_v3:
+	$(CPP) -c src/bpp.cpp -o obj/x86_64_v3/bpp.o $(CXXINCS) $(FLAGS) $(X86_64_V3) $(LDLIBS)
+ 	$(CC) -c src/glad.c -o obj/x86_64_v3/glad.o $(CINCS) $(FLAGS) $(X86_64_V3) $(LDLIBS)
+	$(WINDRES) -i rsrc/bpp.rc --input-format=rc -o obj/x86_64_v3/bpp.res -O coff
+	$(CPP) $(X86_64_V3_OBJ) -o $(X86_64_V3_BIN) $(LIBSDIR) $(LDLIBS)
+
+x86_64_v4:
+	$(CPP) -c src/bpp.cpp -o obj/x86_64_v4/bpp.o $(CXXINCS) $(FLAGS) $(X86_64_V4) $(LDLIBS)
+ 	$(CC) -c src/glad.c -o obj/x86_64_v4/glad.o $(CINCS) $(FLAGS) $(X86_64_V4) $(LDLIBS)
+	$(WINDRES) -i rsrc/bpp.rc --input-format=rc -o obj/x86_64_v4/bpp.res -O coff
+	$(CPP) $(X86_64_V4_OBJ) -o $(X86_64_V4_BIN) $(LIBSDIR) $(LDLIBS)
