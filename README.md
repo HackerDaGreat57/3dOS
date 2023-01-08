@@ -1,4 +1,4 @@
 # 3dOS
 The Three-Dimensional Operating System.
 
-Currently I'm working on the [compression program](https://github.com/HackerDaGreat57/3dOS/tree/hz) which 3dFS, the file system designed for 3dOS, will use.
+Work is not being done on this GitHub repository. It is currently on a private Gitea instance that will go public once I get a domain name and dedicated Internet connection which only the server computer will be connected to. I've tried hosting it on my home utilities but unfortunately that's just not feasible right now. (Xfinity wants you to download their cr..app to set up port forwarding. Barbarians. UPnP doesn't let Git commits go through for some outrageous reason.)
